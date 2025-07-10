@@ -1,28 +1,32 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
+
 import {
   greeting,
   workExperiences,
   skillsSection,
-  openSource,
-  blogSection,
-  talkSection,
+  // openSource,
+  // blogSection,
+  // talkSection,
   achievementSection,
-  resumeSection
+  // resumeSection
 } from "../../portfolio";
 
 function Header() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
+
   const viewExperience = workExperiences.display;
-  const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
-  const viewBlog = blogSection.display;
-  const viewTalks = talkSection.display;
-  const viewResume = resumeSection.display;
+
+  // 🔒 Commented out: These sections are not added
+  // const viewOpenSource = openSource.display;
+  // const viewBlog = blogSection.display;
+  // const viewTalks = talkSection.display;
+  // const viewResume = resumeSection.display;
 
   return (
     <Headroom>
@@ -36,7 +40,7 @@ function Header() {
         <label
           className="menu-icon"
           htmlFor="menu-btn"
-          style={{color: "white"}}
+          style={{ color: "white" }}
         >
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
@@ -51,34 +55,55 @@ function Header() {
               <a href="#experience">Work Experiences</a>
             </li>
           )}
-          {viewOpenSource && (
+
+          {/* ❌ Open Source - section not included */}
+          {/* {viewOpenSource && (
             <li>
               <a href="#opensource">Open Source</a>
             </li>
-          )}
+          )} */}
+
           {viewAchievement && (
             <li>
               <a href="#achievements">Achievements</a>
             </li>
           )}
-          {viewBlog && (
+
+          {/* ❌ Blog - section not included */}
+          {/* {viewBlog && (
             <li>
               <a href="#blogs">Blogs</a>
             </li>
-          )}
-          {viewTalks && (
+          )} */}
+
+          {/* ❌ Talks - section not included */}
+          {/* {viewTalks && (
             <li>
               <a href="#talks">Talks</a>
             </li>
-          )}
-          {viewResume && (
+          )} */}
+
+          {/* ❌ Resume - section not included */}
+          {/* {viewResume && (
             <li>
               <a href="#resume">Resume</a>
             </li>
-          )}
+          )} */}
+
+          {/* ✅ Education - custom section added */}
+          <li>
+            <a href="#education">Education</a>
+          </li>
+
+          {/* ✅ Projects - custom section added */}
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+
           <li>
             <a href="#contact">Contact Me</a>
           </li>
+
           <li>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>
@@ -90,4 +115,5 @@ function Header() {
     </Headroom>
   );
 }
+
 export default Header;

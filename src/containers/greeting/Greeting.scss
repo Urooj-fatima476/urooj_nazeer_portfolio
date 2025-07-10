@@ -1,11 +1,14 @@
 @import "../../_globalColor";
 
+// Commit: Adjust layout for greeting image (right-align on desktop, center on mobile)
+
 .main {
   width: 90%;
   padding: 20px 10px;
   margin: 0px auto;
   margin-top: 4rem;
 }
+
 .greet-main {
   width: 90%;
   padding: 20px 10px;
@@ -13,21 +16,33 @@
   margin-top: 2rem;
 }
 
+// ✅ UPDATE: Flex container for greeting layout
 .greeting-main {
   display: flex;
-}
-
-.subTitle {
-  color: $subTitle !important;
-}
-
-.greeting-main {
-  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .greeting-main > * {
   flex: 1;
   margin-bottom: 30px;
+}
+
+.greeting-text-div {
+  padding-right: 1rem;
+}
+
+.greeting-image-div {
+  display: flex;
+  justify-content: flex-end; // ✅ Right-align image
+  align-items: center;
+}
+
+.profile-illustration {
+  width: 80%;
+  max-width: 320px;
 }
 
 .empty-div {
@@ -38,6 +53,7 @@
   display: flex;
   margin-top: 40px;
 }
+
 .download-link-button {
   text-decoration: none;
 }
@@ -56,6 +72,10 @@
 .greeting-image-div > img {
   max-width: 100%;
   height: auto;
+}
+
+.subTitle {
+  color: $subTitle !important;
 }
 
 .wave-emoji {
@@ -90,7 +110,7 @@
   }
 }
 
-/* Media Query */
+// ✅ Responsive styles for small screens
 @media (max-width: 1380px) {
   .greeting-text {
     font-size: 50px;
@@ -99,6 +119,7 @@
     font-size: 20px;
   }
 }
+
 @media (max-width: 768px) {
   .button-greeting-div {
     justify-content: space-around;
@@ -112,11 +133,19 @@
     line-height: normal;
     text-align: center;
   }
+
   .greeting-main {
-    display: block;
+    flex-direction: column; // ✅ Stack vertically on mobile
+    text-align: center;
   }
+
   .greeting-image-div {
-    height: 256px;
+    justify-content: center; // ✅ Center image on mobile
+    margin-top: 2rem;
+  }
+
+  .greeting-text-div {
+    padding-right: 0;
   }
 }
 

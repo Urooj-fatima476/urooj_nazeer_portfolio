@@ -42,28 +42,29 @@ export default function Greeting() {
                 <Button text="Contact me" href="#contact" />
                 {greeting.resumeLink && (
                   <a
-                    href={require("./resume.pdf")}
-                    download="Resume.pdf"
-                    className="download-link-button"
-                  >
-                    <Button text="Download my resume" />
-                  </a>
+  href="https://www.linkedin.com/in/urooj-fatima-90685a298/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="download-link-button"
+>
+  <Button text="Visit My LinkedIn" />
+</a>
                 )}
               </div>
             </div>
           </div>
           <div className="greeting-image-div">
-            {illustration.animated ? (
-              <DisplayLottie animationData={landingPerson} />
-            ) : (
-              <img
-                alt="man sitting on table"
-                src={require("../../assets/images/manOnTable.svg")}
-              ></img>
-            )}
-          </div>
+  <img
+    alt="Urooj"
+    src={require("../../assets/images/emoji.webp")}
+    className="profile-illustration"
+  />
+</div>
+
+          
         </div>
       </div>
     </Fade>
   );
 }
+
